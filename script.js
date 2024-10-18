@@ -8,13 +8,17 @@ document.getElementById('dateForm').addEventListener('submit', function(event) {
     let outputDiv = document.getElementById('output');
     outputDiv.innerHTML = `Bạn đã đến: ${day}/${month}/${year}`;
     
-    outputDiv.style.opacity = '0';  
-    outputDiv.style.animation = 'none'; 
-    setTimeout(() => {
-        outputDiv.style.animation = 'timeTravel 2s ease-out forwards';  // Re-apply animation
-    }, 10);
+  
+    document.body.classList.add('animate');
+    document.querySelector('.container').classList.add('animate');
+
 
     setTimeout(() => {
-        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";  // Interstellar Soundtrack link
-    }, 5000);  
+        outputDiv.style.opacity = '1';
+    }, 4000);  
+
+
+    setTimeout(() => {
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ?si=Obem39WugRsIgLHQ";  
+    }, 7000);  
 });

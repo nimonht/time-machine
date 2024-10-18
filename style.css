@@ -7,6 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     color: #fff;
+    overflow: hidden;  
 }
 .container {
     background-color: #fff;
@@ -59,25 +60,47 @@ button:hover {
     font-size: 1.3em;
     color: #333;
     opacity: 0;
-    animation: timeTravel 2s ease-out forwards;
 }
-@keyframes timeTravel {
+
+@keyframes pageTravel {
     0% {
-        opacity: 0;
-        transform: scale(0.2) rotate(360deg);
+        background-color: #6a11cb;
+        transform: scale(1);
+    }
+    25% {
+        background-color: #e74c3c;
+        transform: scale(1.2) rotate(10deg);
     }
     50% {
-        opacity: 0.5;
-        transform: scale(1.5) rotate(-180deg);
+        background-color: #3498db;
+        transform: scale(0.8) rotate(-10deg);
+    }
+    75% {
+        background-color: #8e44ad;
+        transform: scale(1.4) rotate(15deg);
     }
     100% {
-        opacity: 1;
+        background-color: #2ecc71;
         transform: scale(1) rotate(0deg);
     }
 }
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-        max-width: 90%;
+@keyframes contentTravel {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
     }
+    50% {
+        opacity: 0.5;
+        transform: translateY(50%) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+body.animate {
+    animation: pageTravel 4s ease-in-out forwards;
+}
+.container.animate {
+    animation: contentTravel 4s ease-out forwards;
 }
